@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hotspot</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="icon" href="assets\img\favicon.png">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic'>
+  <link rel='stylesheet' href='assets\css\bootstrap.min.css'>
+  <link rel='stylesheet' href='assets\css\vendor.css'>
+  <link rel='stylesheet' href='assets\css\theme-3.css' id="theme">
+  <link rel='stylesheet' href='assets\css\custom.css'>
+  <script src='assets\js\modernizr-2.8.3.min.js'></script>
+</head>
+<body>
+  <div class="page-loader">
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div> <!-- .animacja ładowania -->
+
+  <header id="siteHeader" class="site-header site-header-fixed-top">
+    <nav id="siteNavbar" class="navbar navbar-default navbar-fixed-top site-navbar-from-light-fg">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle-icon navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon ti-layout-grid3-alt"></span>
+          </button>
+
+          <a class="navbar-brand" href="login.html">
+            <img class="navbar-brand-media-light" src="assets\img\mi-ayam-light.png" alt="">
+            <img class="navbar-brand-media-dark" src="assets\img\mi-ayam-dark.png" alt="">
+          </a>
+        </div> <!-- .logo -->
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://salezjanie.edu.pl">Strona Główna</a></li>
+  
+          </ul>
+        </div> <!-- .navbar-collapse -->
+      </div>
+    </nav>
+  </header> <!-- .góra-strony -->
+
+  <div class="main">
+    <div id="home" class="home-section home-hero align-outer bg-theme-1">
+
+      <div id="homeBgImg" data-bg-img="media/index-layout-1-bg-img+animated-gradient.jpg"></div> 
+
+      <div id="homeBgAnimatedGradient" data-opacity=".8"></div> 
+
+      <div class="align-inner align-middle">
+        <div class="container">
+          <div class="home-row row">
+            <div class="home-left-col col-sm-6">
+              <h1 class="text-animate section-title">Salezjanie</h1>
+
+              <p class="text-animate">Pomyślnie wylogowano z użytkownika $(username)</p>
+            
+            </div>
+
+            <div class="home-form-col col-sm-6 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
+              <div class="panel panel-theme-2 wow fadeInUp">
+                <div class="panel-heading">
+                  <h5>Hotspot</h5>
+                </div>
+                <div class="panel-body">
+                  <table class="table">
+                    <tbody class="align-l">
+                      <tr>
+                        <td>Nazwa użytkownika</td>
+                        <td>$(username)</td>
+                      </tr>
+                      <tr>
+                        <td>Adres IP</td>
+                        <td>$(ip)</td>
+                      </tr>
+                      <tr>
+                        <td>Adres MAC</td>
+                        <td>$(mac)</td>
+                      </tr>
+                      $(if session-time-left)
+                      <tr>
+                        <td>Połączono / Upłynęło</td>
+                        <td>$(uptime) / $(session-time-left)</td>
+                      </tr>
+                      $(else)
+                      <tr>
+                        <td>Połączono</td>
+                        <td>$(uptime)</td>
+                      </tr>
+                      $(endif)
+                      <tr>
+                        <td>Pobrano / Wysłano</td>
+                        <td>$(bytes-out-nice) / $(bytes-in-nice)</td>
+                      </tr>
+                      $(if limit-bytes-total)
+                      <tr>
+                        <td>Pozostały limit</td>
+                        <td>$(if limit-bytes-total) 
+                          <script language=javascript>result = ($(limit-bytes-total)/1000000).toFixed(2)
+                          document.write(result)</script> MiB
+                          $(endif)
+                          $(if limit-bytes-total == '')Unlimited$(endif)</td>
+                      </tr>
+                      $(else)
+                      <tr>
+                        <td>Pozostały limit</td>
+                        <td>$(if limit-bytes-out) 
+                          <script language=javascript>result = ($(limit-bytes-out)/1000000).toFixed(2)
+                          document.write(result)</script> MiB
+                          $(endif)
+                          $(if limit-bytes-out == '')Unlimited$(endif)</td>
+                      </tr>
+                      $(endif)
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <script src='assets\js\jquery-1.11.3.min.js'></script>
+  <script src='assets\js\bootstrap.min.js'></script>
+  <script src='assets\js\vendor.js'></script>
+  <script src='assets\js\main.js'></script>
+</body>
+</html>
